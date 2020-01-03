@@ -387,6 +387,7 @@ class mp4frag(threading.Thread):
 			self._initialization[index:index + 3].hex().upper(), \
 			audioString \
 		)
+		print(self._mime)
 		self._timestamp = int(round(time.time() * 1000))
 		if (hasattr(self, '_hlsList') and hasattr(self, '_hlsListInit')):
 			m3u8 = '#EXTM3U\n'

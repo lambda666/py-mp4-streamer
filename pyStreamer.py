@@ -10,7 +10,7 @@ _cmd1 = "ffmpeg -threads 2 -loglevel warning -analyzeduration 1000000 -probesize
 
 _cmd2 = "ffmpeg -threads 2 -loglevel warning -analyzeduration 1000000 -probesize 1000000 -f rawvideo -pix_fmt yuv420p -s %s -i - -i ffmpeg-logo.png -filter_complex overlay=x='if(gte(t,0),-w+(mod(n,W+w))+1,NAN)':y=0 -f rawvideo -pix_fmt yuv420p -s %s pipe:1"%(SIZE1,SIZE1)
 
-_cmd3 = "ffmpeg -threads 2 -loglevel warning -analyzeduration 1000000 -probesize 1000000 -f rawvideo -pix_fmt yuv420p -s %s -i - -f mp4 -vcodec libx264 -strict -2 -movflags +frag_keyframe+empty_moov+default_base_moof -metadata title='FFStream' -reset_timestamps 1 -crf 15 -preset ultrafast -tune zerolatency pipe:1 -y"%SIZE1
+_cmd3 = "ffmpeg -threads 2 -loglevel warning -analyzeduration 1000000 -probesize 1000000 -f rawvideo -pix_fmt yuv420p -s %s -i - -f mp4 -vcodec libx264 -strict -2 -movflags +frag_keyframe+empty_moov+default_base_moof -metadata title='FFStream' -reset_timestamps 1 -crf 15 -preset ultrafast -tune zerolatency pipe:1 s.mp4 -y"%SIZE1
 
 def putStream(f):
 	print("stream start...")
